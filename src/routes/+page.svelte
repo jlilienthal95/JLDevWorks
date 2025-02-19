@@ -1,9 +1,13 @@
-<script>
+<script lang='ts'>
     const lgTextCont = "md:w-2/3 w-full"
     const lgTextClass = "text-[50px] md:text-[75px] xl:text-[100px]"
     const smTextClass = "text-[18px] sm:text-[32px] md:text-[38px] lg:text-[30px] xl:text-[38px]"
 
     let expanded = false;
+
+    function handleContextMenu(event: MouseEvent) {
+        event.preventDefault();
+    }
 </script>
 
 <div class="flex flex-col flex-1 h-full w-full justify-center items-center mt-4 gap-10">
@@ -63,6 +67,7 @@
             on:mouseleave={() => expanded = false}
             on:touchstart={() => expanded = true}
             on:touchend={() => expanded = false}
+            on:contextmenu={handleContextMenu}
         >
             <img
                 class="object-cover rounded-4xl w-full h-full"
