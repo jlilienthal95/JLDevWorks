@@ -9,7 +9,7 @@
 <div class="relative min-h-screen h-auto w-full bg-cover bg-blue-50 font-bold">
 	<div id="header" class="flex flex-row fixed w-full md:h-42 h-30 justify-between items-center lg:px-40 pr-12 z-100 bg-gradient-to-b to-transparent from-black/30 backdrop-blur-xs">
 		<div id="logo" class="h-full">
-			<img class="h-full max-h-full object-contain" src='/JLDevWorksLogo.png' alt="JL DevWorks"/>
+			<img class="h-full max-h-full object-contain animate-wiggle-hover" src='/JLDevWorksLogo.png' alt="JL DevWorks"/>
 		</div>
 		<ul class="flex lg:flex-row flex-col md:gap-4" id="links">
 			<li class={liClass} id="about">

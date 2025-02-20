@@ -8,6 +8,7 @@
     function disableLongPress(event: TouchEvent | MouseEvent) {
         event.preventDefault();
     }
+
 </script>
 
 <div class="flex flex-col flex-1 h-full w-full justify-center items-center mt-4 gap-10">
@@ -34,11 +35,11 @@
         </div>
     </div>
     <div id="joshuaCont" class="flex lg:flex-row flex-col w-full md:justify-between sm:items-end items-center gap-20">
-        <div class="flex sm:text-start text-end sm:text-[100px] text-[60px] underline">
+        <div class="flex sm:text-start text-end sm:text-[100px] text-[60px] animate-in fade-in zoom-in duration-500 direction-alternate">
             JOSHUA<br>LILIENTHAL
         </div>
         <div id="joshuaPhotoContainer" class="flex">
-            <img class="object-contain rounded-4xl max-h-120" src="/images/profile pic.jpeg" alt="Joshua Lilienthal | Fullstack Engineer"/>
+            <img class="object-contain rounded-4xl max-h-120" src="/images/experiences.jpg" alt="Joshua Lilienthal | Fullstack Engineer"/>
         </div>
     </div>
     <div id="intersectionCont" class="flex flex-1 lg:flex-row flex-col w-full gap-4">        
@@ -59,7 +60,7 @@
             class="relative overflow-hidden w-full transition-all duration-500 ease-in-out"
             class:h-[200px]={!expanded}
             class:h-[400px]={expanded}
-            class:md:h-[300px]={!expanded}
+            class:md:h-[350px]={!expanded}
             class:md:h-[700px]={expanded}
             role="img"
             aria-label="Image of Joshua Lilienthal | Fullstack Engineer"
@@ -74,7 +75,6 @@
                 class="object-cover rounded-4xl w-full h-full"
                 src="/images/phoneFall.jpg"
                 alt="Joshua Lilienthal | Fullstack Engineer"
-                style="transform: scale(0.9);"
             />
       </div>
       <div>

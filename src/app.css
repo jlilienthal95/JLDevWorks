@@ -1,12 +1,30 @@
 @import 'tailwindcss';
+@plugin "tailwindcss-animate";
 
 @font-face {
     font-family: 'Jost';
     src: url('/fonts/Jost-VariableFont_wght.ttf') format('truetype');
     font-weight: 300;
     font-style: normal;
-  }
+}
 
-  body {
-    font-family: 'Jost', sans-serif;
-  }
+body {
+  font-family: 'Jost', sans-serif;
+}
+
+@keyframes wiggle {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(-9deg); }
+  50% { transform: rotate(9deg); }
+  75% { transform: rotate(-9deg); }
+  100% {transform: rotate(0deg);}
+}
+
+
+.animate-wiggle {
+animation: wiggle 0.5s infinite ease-in-out;
+}
+
+.animate-wiggle-hover:hover {
+  animation: wiggle 0.5s 2 ease-in-out;
+}
