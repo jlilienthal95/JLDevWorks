@@ -5,7 +5,7 @@
 
     let expanded = false;
 
-    function handleContextMenu(event: MouseEvent) {
+    function disableLongPress(event: TouchEvent | MouseEvent) {
         event.preventDefault();
     }
 </script>
@@ -67,7 +67,8 @@
             on:mouseleave={() => expanded = false}
             on:touchstart={() => expanded = true}
             on:touchend={() => expanded = false}
-            on:contextmenu={handleContextMenu}
+            on:contextmenu={disableLongPress}
+            on:touchstart={disableLongPress}
         >
             <img
                 class="object-cover rounded-4xl w-full h-full"
