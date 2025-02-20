@@ -3,23 +3,37 @@
 	let { children } = $props();
 
 	const linkClass = "hover:opacity-60"
-	const liClass = "lg:after:content-['|'] md:after:ml-4 last:after:content-none"
+	const liClass = "flex flex-row lg:after:content-['|'] md:after:ml-4 last:after:content-none animate-in fade-in duration-2000"
+
+	function disableLongPress(event: TouchEvent | MouseEvent) {
+        event.preventDefault();
+    }
 </script>
 
 <div class="relative min-h-screen h-auto w-full bg-cover bg-blue-50 font-bold">
 	<div id="header" class="flex flex-row fixed w-full md:h-42 h-30 justify-between items-center lg:px-40 pr-12 z-100 bg-gradient-to-b to-transparent from-black/30 backdrop-blur-xs">
 		<div id="logo" class="h-full">
-			<img class="h-full max-h-full object-contain animate-wiggle-hover" src='/JLDevWorksLogo.png' alt="JL DevWorks"/>
+			<img class="h-full max-h-full object-contain animate-wiggle-hover"
+				src='/JLDevWorksLogo.png'
+				alt="JL DevWorks"
+				oncontextmenu={disableLongPress}
+				ontouchstart={disableLongPress}/>
 		</div>
 		<ul class="flex lg:flex-row flex-col md:gap-4" id="links">
-			<li class={liClass} id="about">
-				About
+			<li class={liClass}>
+				<div class={"animate-in slide-in-from-bottom duration-1000"} id="about">
+					About
+				</div>
 			</li>
-			<li class={liClass} id="recentWork">
-				Recent Products
+			<li class={liClass}>
+				<div class={"animate-in slide-in-from-bottom duration-1500"} id="recentWork">
+					Recent Products
+				</div>
 			</li>
-			<li class={liClass} id="contact">
-				Contact
+			<li class={liClass}>
+				<div class={"animate-in slide-in-from-bottom duration-2000"} id="contact">
+					Contact
+				</div>
 			</li>
 		</ul>
 		<!-- <div id= "contactInfo" class="md:flex flex-col hidden">

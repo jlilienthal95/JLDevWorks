@@ -34,12 +34,21 @@
             </div> -->
         </div>
     </div>
-    <div id="joshuaCont" class="flex lg:flex-row flex-col w-full md:justify-between sm:items-end items-center gap-20">
-        <div class="flex sm:text-start text-end sm:text-[100px] text-[60px] animate-in fade-in zoom-in duration-500 direction-alternate">
-            JOSHUA<br>LILIENTHAL
+    <div id="joshuaCont" class="flex lg:flex-row flex-col w-full md:justify-between sm:items-end items-center gap-20 overflow-hidden">
+        <div id="nameCont">
+            <div class="flex flex-col sm:text-start text-end sm:text-[100px] text-[60px] space-x-2 overflow-hidden">
+                <div class="animate-in slide-in-from-bottom duration-1200">
+                    JOSHUA
+                </div>
+            </div>
+            <div class="flex flex-col sm:text-start text-end sm:text-[100px] text-[60px] space-x-2 overflow-hidden">
+                <div class="animate-in slide-in-from-bottom duration-1500">
+                    LILIENTHAL
+                </div>
+            </div>
         </div>
-        <div id="joshuaPhotoContainer" class="flex">
-            <img class="object-contain rounded-4xl max-h-120" src="/images/experiences.jpg" alt="Joshua Lilienthal | Fullstack Engineer"/>
+        <div id="firstPhotoContainer" class="flex">
+            <img class="object-contain rounded-4xl max-h-160 animate-in slide-in-from-bottom duration-1000" src="/images/experiences.jpg" alt="Joshua Lilienthal | Fullstack Engineer"/>
         </div>
     </div>
     <div id="intersectionCont" class="flex flex-1 lg:flex-row flex-col w-full gap-4">        
