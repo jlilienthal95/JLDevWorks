@@ -1,5 +1,6 @@
 <script lang='ts'>
-    import { scrollY } from "../store.js";
+    import { onDestroy } from 'svelte';
+    import { scrollY, wiggle } from "../store.js";
 
     const lgTextCont = "md:w-2/3 w-full"
     const lgTextClass = "text-[50px] sm:text-[60px] md:text-[75px] xl:text-[100px]"
@@ -11,6 +12,21 @@
         event.preventDefault();
     }
 
+    // Toggle the wiggle every 10 seconds
+    const interval = setInterval(() => {
+        // Start the wiggle animation
+        wiggle.set(true);
+
+        // Stop the animation after 1 second (animation duration)
+        setTimeout(() => {
+            wiggle.set(false);
+        }, 1000); // animation duration
+    }, 10000); // 10 seconds interval
+
+    // Clear the interval when the component is destroyed to avoid memory leaks
+    onDestroy(() => {
+        clearInterval(interval);
+    });
 </script>
 
 <div class="flex flex-col flex-1 h-full w-full justify-center items-center mt-4 gap-10">
@@ -49,8 +65,8 @@
                 </div>
             </div>
         </div>
-        <div id="firstPhotoContainer" class="flex">
-            <img class="object-contain rounded-4xl max-h-160 animate-in slide-in-from-bottom duration-1000" src="/images/experiences.jpg" alt="Joshua Lilienthal | Fullstack Engineer"/>
+        <div id="firstPhotoCont" class="flex">
+            <img class="object-contain rounded-4xl max-h-160 {$wiggle ? "animate-wiggle-twice" : ""}" src="/images/experiences.jpg" alt="Joshua Lilienthal | Fullstack Engineer"/>
         </div>
     </div>
     <div id="intersectionCont" class="flex flex-1 lg:flex-row flex-col w-full gap-4">        
@@ -65,7 +81,7 @@
             </div>
         </div>
     </div>
-    <div id="unnamedCont" class="flex flex-col w-full  md:h-[700px] h-[400px] justify-center lg:items-center gap-20">
+    <div id="secondPhotoCont" class="flex flex-col w-full  md:h-[700px] h-[400px] justify-center lg:items-center gap-20">
         <div
             id="photoContainer"
             class="relative overflow-hidden w-full transition-all duration-500 ease-in-out"
@@ -90,6 +106,6 @@
       </div>
     </div>
     <div class={smTextClass}>
-          MODERN FRONTEND FRAMEWORKS AND SCALABLE BACKEND SOLUTIONS&nbsp;- I COLLABORATE WITH TEAMS TO BUILD DYNAMIC APPLICATIONS, INTUITIVE INTERFACES, AND ROBUST INFRASTRUCTURE. SPANNING REACT, NEXT.JS, SVELTE, NODE.JS, AND GRAPHQL—EVERY DIGITAL EXPERIENCE SHOULD BE BOTH BEAUTIFUL AND FUNCTIONAL.
+          MODERN FRONTEND FRAMEWORKS AND SCALABLE BACKEND SOLUTIONS&nbsp;— I COLLABORATE WITH TEAMS TO BUILD DYNAMIC APPLICATIONS, INTUITIVE INTERFACES, AND ROBUST INFRASTRUCTURE. SPANNING REACT, NEXT.JS, SVELTE, NODE.JS, AND GRAPHQL—EVERY DIGITAL EXPERIENCE SHOULD BE BOTH BEAUTIFUL AND FUNCTIONAL.
     </div>
 </div>
