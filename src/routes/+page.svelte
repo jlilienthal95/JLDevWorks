@@ -4,7 +4,7 @@
 
     const lgTextCont = "md:w-2/3 w-full"
     const lgTextClass = "text-[50px] sm:text-[60px] md:text-[75px] xl:text-[100px]"
-    const smTextClass = "text-[px] md:text-[38px] lg:text-[30px] xl:text-[38px]"
+    const smTextClass = "text-[30px] md:text-[38px] lg:text-[30px] xl:text-[38px]"
 
     let expanded = false;
 
@@ -66,7 +66,7 @@
             </div>
         </div>
         <div id="firstPhotoCont" class="flex">
-            <img class="object-contain rounded-4xl max-h-160 {$wiggle ? "animate-wiggle-twice" : ""}" src="/images/experiences.jpg" alt="Joshua Lilienthal | Fullstack Engineer"/>
+            <img class="object-contain rounded-4xl max-h-160 {$wiggle ? "animate-spring" : ""}" src="/images/experiences.jpg" alt="Joshua Lilienthal | Fullstack Engineer"/>
         </div>
     </div>
     <div id="intersectionCont" class="flex flex-1 lg:flex-row flex-col w-full gap-4">        
@@ -81,31 +81,41 @@
             </div>
         </div>
     </div>
-    <div id="secondPhotoCont" class="flex flex-col w-full  md:h-[700px] h-[400px] justify-center lg:items-center gap-20">
-        <div
-            id="photoContainer"
-            class="relative overflow-hidden w-full transition-all duration-500 ease-in-out"
-            class:h-[200px]={!expanded}
-            class:h-[400px]={expanded}
-            class:md:h-[350px]={!expanded}
-            class:md:h-[700px]={expanded}
-            role="img"
-            aria-label="Image of Joshua Lilienthal | Fullstack Engineer"
-            on:mouseenter={() => expanded = true}
-            on:mouseleave={() => expanded = false}
-            on:touchstart={() => expanded = true}
-            on:touchend={() => expanded = false}
-            on:contextmenu={disableLongPress}
-            on:touchstart={disableLongPress}
-        >
-            <img
-                class="object-cover rounded-4xl w-full h-full"
-                src="/images/phoneFall.jpg"
-                alt="Joshua Lilienthal | Fullstack Engineer"
-            />
-      </div>
-    </div>
-    <div class={smTextClass}>
-          MODERN FRONTEND FRAMEWORKS AND SCALABLE BACKEND SOLUTIONS&nbsp;— I COLLABORATE WITH TEAMS TO BUILD DYNAMIC APPLICATIONS, INTUITIVE INTERFACES, AND ROBUST INFRASTRUCTURE. SPANNING REACT, NEXT.JS, SVELTE, NODE.JS, AND GRAPHQL—EVERY DIGITAL EXPERIENCE SHOULD BE BOTH BEAUTIFUL AND FUNCTIONAL.
+    <div id="secondPhotoCont" class="flex lg:flex-row flex-col w-full justify-end items-center gap-20">
+        <div class="relative flex lg:flex-2 md:h-[700px] h-[400px] items-center w-full">
+            <div class="absolute lg:top-10 top-4 lg:left-10 left-4">
+                <div class="flex flex-row + {lgTextClass} items-center">
+                    WELCOME
+                    <svg class="" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 21 21" {...$$props}><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="m6.5 13.499l4 4.001l4-4.001m-4 4.001v-13"/></svg>
+                </div>
+            </div>
+            <div
+                id="photoContainer"
+                class="relative overflow-hidden w-full transition-all duration-500 ease-in-out"
+                class:h-[200px]={!expanded}
+                class:h-[400px]={expanded}
+                    class:md:h-[350px]={!expanded}
+                class:md:h-[700px]={expanded}
+                role="img"
+                aria-label="Image of Joshua Lilienthal | Fullstack Engineer"
+                on:mouseenter={() => expanded = true}
+                on:mouseleave={() => expanded = false}
+                on:touchstart={() => expanded = true}
+                on:touchend={() => expanded = false}
+                on:contextmenu={disableLongPress}
+                on:touchstart={disableLongPress}
+            >
+                <img
+                    class="object-cover rounded-4xl w-full h-full"
+                    src="/images/phoneFall.jpg"
+                    alt="Joshua Lilienthal | Fullstack Engineer"
+                />
+          </div>
+        </div>
+        <div class="flex-1">
+            <div class="text-[30px] md:text-[38px] lg:text-[30px] 2xl:text-[36px]">
+                  MODERN FRONTEND FRAMEWORKS AND SCALABLE BACKEND SOLUTIONS&nbsp;— <br> DYNAMIC APPLICATIONS, INTUITIVE INTERFACES, AND ROBUST INFRASTRUCTURE. SPANNING REACT, NEXT.JS, SVELTE, NODE.JS, AND GRAPHQL—EVERY DIGITAL EXPERIENCE SHOULD BE BOTH BEAUTIFUL AND FUNCTIONAL.
+            </div>
+        </div>
     </div>
 </div>
