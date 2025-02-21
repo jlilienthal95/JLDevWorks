@@ -1,6 +1,8 @@
 <script lang='ts'>
+    import { scrollY } from "../store.js";
+
     const lgTextCont = "md:w-2/3 w-full"
-    const lgTextClass = "text-[50px] md:text-[75px] xl:text-[100px]"
+    const lgTextClass = "text-[50px] sm:text-[60px] md:text-[75px] xl:text-[100px]"
     const smTextClass = "text-[18px] sm:text-[32px] md:text-[38px] lg:text-[30px] xl:text-[38px]"
 
     let expanded = false;
@@ -35,14 +37,14 @@
         </div>
     </div>
     <div id="joshuaCont" class="flex lg:flex-row flex-col w-full md:justify-between sm:items-end items-center gap-20 overflow-hidden">
-        <div id="nameCont">
+        <div id="nameCont" class="w-full">
             <div class="flex flex-col sm:text-start text-end sm:text-[100px] text-[60px] space-x-2 overflow-hidden">
-                <div class="animate-in slide-in-from-bottom duration-1200">
+                <div class="animate-in slide-in-from-bottom duration-1200" class:md:running={$scrollY > 300} class:md:paused={$scrollY <= 300}>
                     JOSHUA
                 </div>
             </div>
             <div class="flex flex-col sm:text-start text-end sm:text-[100px] text-[60px] space-x-2 overflow-hidden">
-                <div class="animate-in slide-in-from-bottom duration-1500">
+                <div class="animate-in slide-in-from-bottom duration-1500" class:md:running={$scrollY > 300} class:md:paused={$scrollY <= 300}>
                     LILIENTHAL
                 </div>
             </div>
