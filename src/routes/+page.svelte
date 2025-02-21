@@ -3,7 +3,7 @@
 
     const lgTextCont = "md:w-2/3 w-full"
     const lgTextClass = "text-[50px] sm:text-[60px] md:text-[75px] xl:text-[100px]"
-    const smTextClass = "text-[18px] sm:text-[32px] md:text-[38px] lg:text-[30px] xl:text-[38px]"
+    const smTextClass = "text-[px] md:text-[38px] lg:text-[30px] xl:text-[38px]"
 
     let expanded = false;
 
@@ -39,12 +39,12 @@
     <div id="joshuaCont" class="flex lg:flex-row flex-col w-full md:justify-between sm:items-end items-center gap-20 overflow-hidden">
         <div id="nameCont" class="w-full">
             <div class="flex flex-col sm:text-start text-end sm:text-[100px] text-[60px] space-x-2 overflow-hidden">
-                <div class="animate-in slide-in-from-bottom duration-1200" class:md:running={$scrollY > 300} class:md:paused={$scrollY <= 300}>
+                <div class="animate-in slide-in-from-bottom duration-1200" class:md:hidden={$scrollY < 90} class:md:running={$scrollY > 300} class:md:paused={$scrollY <= 300}>
                     JOSHUA
                 </div>
             </div>
             <div class="flex flex-col sm:text-start text-end sm:text-[100px] text-[60px] space-x-2 overflow-hidden">
-                <div class="animate-in slide-in-from-bottom duration-1500" class:md:running={$scrollY > 300} class:md:paused={$scrollY <= 300}>
+                <div class="animate-in slide-in-from-bottom duration-1500" class:md:hidden={$scrollY < 90} class:md:running={$scrollY > 300} class:md:paused={$scrollY <= 300}>
                     LILIENTHAL
                 </div>
             </div>
@@ -65,7 +65,7 @@
             </div>
         </div>
     </div>
-    <div id="unnamedCont" class="flex lg:flex-row flex-col w-full md:h-[750px] h-[450px] justify-center lg:items-center gap-20">
+    <div id="unnamedCont" class="flex flex-col w-full  md:h-[700px] h-[400px] justify-center lg:items-center gap-20">
         <div
             id="photoContainer"
             class="relative overflow-hidden w-full transition-all duration-500 ease-in-out"
@@ -88,14 +88,8 @@
                 alt="Joshua Lilienthal | Fullstack Engineer"
             />
       </div>
-      <div>
-        Content underneath animated photo
-      </div>
+    </div>
+    <div class={smTextClass}>
+          MODERN FRONTEND FRAMEWORKS AND SCALABLE BACKEND SOLUTIONS&nbsp;- I COLLABORATE WITH TEAMS TO BUILD DYNAMIC APPLICATIONS, INTUITIVE INTERFACES, AND ROBUST INFRASTRUCTURE. SPANNING REACT, NEXT.JS, SVELTE, NODE.JS, AND GRAPHQL—EVERY DIGITAL EXPERIENCE SHOULD BE BOTH BEAUTIFUL AND FUNCTIONAL.
     </div>
 </div>
-
-<style>
-    .image-wrapper {
-      transition: height 0.4s ease-in-out;
-    }
-  </style>

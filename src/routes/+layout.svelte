@@ -6,22 +6,31 @@
 
 	let { children } = $props();
 
-	const liClass = "flex flex-row lg:after:content-['|'] md:after:ml-4 last:after:content-none animate-in fade-in duration-2000"
+	const liClass = "flex flex-row after:content-['|'] after:ml-2 md:after:ml-4 last:after:content-none animate-in fade-in duration-2000"
 
 	//variables and state for header and scroll tracking
   	const maxHeight = 200; // Max header height
   	const minHeight = 60;  // Min header height
+	const threshold = 650
 
-	// Reactive height calculation using $derived
+	// Reactive height calculation
 	const headerHeight = derived(scrollY, ($scrollY) => {
-				const threshold = 650
 				if($scrollY >=  threshold){
 					return Math.max(minHeight, maxHeight - ($scrollY - threshold) * 0.4)
 				} 
-				else{
+				else {
 					return maxHeight;
 				}
 			}
+	);
+	// Reactive opacity calculation
+	const opacity = derived(scrollY, ($scrollY) => {
+			if($scrollY >= threshold){
+				return Math.max(0, Math.min(1, 1 - ($scrollY / 1000)))
+			} else {
+				return 100;
+			};
+		}
 	);
 
 	//disables contextmenues on images
@@ -37,18 +46,24 @@
 			};
   		}
 	);
+
 </script>
 
 <div class="relative min-h-screen h-auto w-full bg-cover bg-blue-50 font-bold">
-	<div id="header" class="flex flex-row fixed w-full md:h-42 h-30 smaller:h-16 justify-between items-center lg:px-40 pr-12 z-100 bg-gradient-to-b to-transparent from-black/30 backdrop-blur-xs" style="height: {$headerHeight}px;">
-		<div id="logo" class="h-full">
-			<img class="h-full max-h-full object-contain animate-wiggle-hover"
+	<div id="header" class="flex flex-row fixed w-full md:h-42 h-30 justify-between items-center lg:px-40 pr-12 z-100 bg-gradient-to-b to-transparent from-black/30 backdrop-blur-sm" style="height: {$headerHeight}px;">
+		<div id="logo" class="relative h-full overflow-hidden justify-center">
+			<img class="h-full max-h-full object-contain animate-wiggle-hover" class:hidden={$scrollY >= 1000}
 				src='/JLDevWorksLogo.png'
 				alt="JL DevWorks"
 				oncontextmenu={disableLongPress}
 				ontouchstart={disableLongPress}/>
+			<img class="h-full max-h-full md:max-w-xs max-w-50 object-contain animate-wiggle-hover animate-in slide-in-from-bottom duration-1000" class:hidden={$scrollY < 1000} class:block={$scrollY >= 1000}
+				src='/JLDevWorksSimple.png'
+				alt="JL DevWorks"
+				oncontextmenu={disableLongPress}
+				ontouchstart={disableLongPress}/>
 		</div>
-		<ul class="flex lg:flex-row flex-col md:gap-4" id="links">
+		<ul class="flex flex-row md:gap-4 gap-2 md:text-xl text-md" id="links">
 			<li class={liClass}>
 				<div class={"animate-in slide-in-from-bottom duration-1000"} id="about">
 					About
@@ -56,7 +71,7 @@
 			</li>
 			<li class={liClass}>
 				<div class={"animate-in slide-in-from-bottom duration-1500"} id="recentWork">
-					Recent Products
+					Work
 				</div>
 			</li>
 			<li class={liClass}>
@@ -89,9 +104,5 @@
 		src: url('/fonts/Jost-VariableFont_wght.ttf') format('truetype');
 		font-weight: 300;
 		font-style: normal;
-  	}
-
-	.smaller {
-    	height: 60px;
   	}
 </style>
