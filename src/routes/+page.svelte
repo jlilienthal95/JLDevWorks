@@ -68,7 +68,7 @@
                 <img class="object-contain rounded-4xl max-h-160 {$wiggle ? "animate-spring" : ""}" src="/images/keyboard-wide.jpg" alt="Joshua Lilienthal | Fullstack Engineer"/>
             </div>
         </div>
-        <div id="intersectionCont" class="flex flex-1 lg:flex-row flex-col w-full gap-14">        
+        <!-- <div id="intersectionCont" class="flex flex-1 lg:flex-row flex-col w-full gap-14">        
             <div class="flex flex-1 md:justify-start">
                 <div class={lgTextClass + " text-neutral-600"} id="gallery">
                     AT THE INTERSECTION OF TECHNOLOGY AND CREATIVITY&nbsp;—
@@ -79,14 +79,14 @@
                     BUILDING INTUITIVE, ACCESSIBLE, AND HIGH-PERFORMANCE APPLICATIONS. WHETHER IT’S CRAFTING SLEEK UIS OR ARCHITECTING SCALABLE BACKENDS, I FOCUS ON CREATING SEAMLESS USER EXPERIENCES.
                 </div>
             </div>
-        </div>
+        </div> -->
         <div id="modernCont" class="flex lg:flex-row flex-col-reverse w-full justify-end items-center gap-6">
-            <div class="flex-1">
-                <div class="text-[30px] md:text-[38px] lg:text-[30px] 2xl:text-[36px]">
+            <div class="flex flex-1 w-full justify-end items-end">
+                <div class="text-[30px] md:text-[38px] lg:text-[30px] 2xl:text-[42px] md:w-2/3 text-end">
                     MODERN FRONTEND FRAMEWORKS AND SCALABLE BACKEND SOLUTIONS&nbsp;— <br> DYNAMIC APPLICATIONS, INTUITIVE INTERFACES, AND ROBUST INFRASTRUCTURE. SPANNING REACT, NEXT.JS, SVELTE, NODE.JS, AND GRAPHQL.
                 </div>
             </div>
-            <div id="secondPhotoCont" class="relative flex lg:flex-2 md:h-[700px] h-[400px] items-center w-full">
+            <!-- <div id="secondPhotoCont" class="relative flex lg:flex-2 md:h-[700px] h-[400px] items-center w-full">
                 <div class="absolute lg:top-10 top-4 lg:left-10 left-4">
                     <div class="flex flex-row + {lgTextClass} items-center">
                         WELCOME
@@ -114,8 +114,8 @@
                         src="/images/phoneFall.jpg"
                         alt="Joshua Lilienthal | Fullstack Engineer"
                     />
-            </div>
-            </div>
+                </div>
+            </div> -->
         </div>
         <div id="everyDigitalCont" class="flex flex-1 w-full justify-end lg:justify-start">
             <div class={lgTextCont}>
