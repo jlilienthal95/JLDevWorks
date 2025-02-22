@@ -30,7 +30,7 @@
 </script>
 
 <div class="flex flex-col flex-1 h-full w-full justify-center items-center mt-4 lg:gap-40 gap-14">
-    <div id="beautifulCont" class="flex md:flex-row flex-col w-full justify-start items-center">
+    <div id="beautifulCont" class="pt-22 flex md:flex-row flex-col w-full justify-start items-center">
         <div class="flex flex-1 w-full">
             <div class={lgTextCont}>
                 <div id="headline" class={lgTextClass}>
