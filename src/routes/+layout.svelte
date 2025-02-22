@@ -3,6 +3,7 @@
 	import { onMount } from "svelte";
 	import { derived } from "svelte/store";
 	import { scrollY, scrollThreshold } from '../store'; // Store scroll position
+	import { fade } from 'svelte/transition';
 
 	let { children } = $props();
 
@@ -11,27 +12,11 @@
 	//variables and state for header and scroll tracking
   	const maxHeight = 200; // Max header height
   	const minHeight = 60;  // Min header height
-	const threshold = 650
 
+	const shrinkRate = 0.6
 	// Reactive height calculation
-	const headerHeight = derived(scrollY, ($scrollY) => {
-				if($scrollY >=  threshold){
-					return Math.max(minHeight, maxHeight - ($scrollY - threshold) * 0.4)
-				} 
-				else {
-					return maxHeight;
-				}
-			}
-	);
-	// Reactive opacity calculation
-	const opacity = derived(scrollY, ($scrollY) => {
-			if($scrollY >= threshold){
-				return Math.max(0, Math.min(1, 1 - ($scrollY / 1000)))
-			} else {
-				return 100;
-			};
-		}
-	);
+	const headerHeight = derived(scrollY, ($scrollY) => Math.max(minHeight, maxHeight - $scrollY * shrinkRate));
+	const headerThreshold = maxHeight - minHeight / shrinkRate;
 
 	//disables contextmenues on images
 	function disableLongPress(event: TouchEvent | MouseEvent) {
@@ -62,31 +47,45 @@
 <div class="relative min-h-screen h-auto w-full bg-cover bg-blue-50 font-bold">
 	<div id="header" class="flex flex-row fixed w-full md:h-42 h-30 justify-between items-center lg:px-40 pr-12 z-100 bg-gradient-to-b to-transparent from-black/30 backdrop-blur-sm" style="height: {$headerHeight}px;">
 		<div id="logo" class="relative h-full overflow-hidden justify-center">
-			<img class="h-full max-h-full object-contain animate-wiggle-hover" class:hidden={$scrollY >= 1000}
-				src='/JLDevWorksLogo.png'
-				alt="JL DevWorks"
-				oncontextmenu={disableLongPress}
-				ontouchstart={disableLongPress}/>
-			<img class="h-full max-h-full md:max-w-xs max-w-50 object-contain animate-wiggle-hover animate-in slide-in-from-bottom duration-1000" class:hidden={$scrollY < 1000} class:block={$scrollY >= 1000}
-				src='/JLDevWorksSimple.png'
-				alt="JL DevWorks"
-				oncontextmenu={disableLongPress}
-				ontouchstart={disableLongPress}/>
+			<a href="/" class="hover:opacity-60">
+				<img class="h-full max-h-full object-contain animate-in slide-in-from-left duration-1000 delay-500" class:hidden={$scrollY >= 1}
+					src='/JLDevWorksLogo.png'
+					alt="JL DevWorks"
+					oncontextmenu={disableLongPress}
+					ontouchstart={disableLongPress}/>
+				<img class="h-full max-h-full md:max-w-xs max-w-50 object-contain animate-in slide-in-from-bottom duration-1000" class:hidden={$scrollY < 1} class:block={$scrollY >= 1}
+					src='/JLDevWorksSimple.png'
+					alt="JL DevWorks"
+					oncontextmenu={disableLongPress}
+					ontouchstart={disableLongPress}/>
+			</a>
 		</div>
 		<ul class="flex flex-row md:gap-4 gap-2 md:text-xl text-md" id="links">
 			<li class={liClass}>
 				<div class={"animate-in slide-in-from-bottom duration-1000"} id="about">
-					About
+					<div class="animate-wiggle-hover">
+						<a href="/about">
+							About
+						</a>
+					</div>
 				</div>
 			</li>
 			<li class={liClass}>
 				<div class={"animate-in slide-in-from-bottom duration-1500"} id="recentWork">
-					Work
+					<div class="animate-wiggle-hover">
+						<a href="/about">
+							Work
+						</a>
+					</div>
 				</div>
 			</li>
 			<li class={liClass}>
 				<div class={"animate-in slide-in-from-bottom duration-2000"} id="contact">
-					Contact
+					<div class="animate-wiggle-hover">
+						<a href="/about">
+							Contact
+						</a>
+					</div>
 				</div>
 			</li>
 		</ul>
