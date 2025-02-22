@@ -29,9 +29,9 @@
     });
 </script>
 
-<div class="flex flex-col flex-1 h-full w-full justify-center items-center mt-4 gap-10">
-    <div id="headlineFormat" class="flex md:flex-row flex-col w-full justify-start items-center">
-        <div id="headlineCont" class="flex flex-1 w-full">
+<div class="flex flex-col flex-1 h-full w-full justify-center items-center mt-4 lg:gap-40 gap-14">
+    <div id="beautifulCont" class="flex md:flex-row flex-col w-full justify-start items-center">
+        <div class="flex flex-1 w-full">
             <div class={lgTextCont}>
                 <div id="headline" class={lgTextClass}>
                     BEAUTIFUL, RESPONSIVE WEB AND MOBILE APPLICATIONS.
@@ -39,14 +39,14 @@
             </div>
         </div>
     </div>
-    <div id="joshuaCont" class="flex lg:flex-row flex-col w-full md:justify-between sm:items-end items-center gap-20 overflow-hidden">
+    <div id="joshuaCont" class="flex lg:flex-row flex-col w-full md:justify-between sm:items-end lg:items-center items-center gap-20 overflow-hidden">
         <div id="nameCont" class="flex flex-col w-full h-[180px] sm:h-[310px] justify-center">
-            <div class="flex flex-col sm:text-start text-end sm:text-[100px] text-[60px] space-x-2 overflow-hidden">
+            <div class="flex flex-col lg:text-start text-end sm:text-[100px] text-[60px] space-x-2 overflow-hidden">
                 <div class="animate-in slide-in-from-bottom duration-1200" class:md:hidden={$scrollY < 90} class:md:running={$scrollY > 300} class:md:paused={$scrollY <= 300}>
                     JOSHUA
                 </div>
             </div>
-            <div class="flex flex-col sm:text-start text-end sm:text-[100px] text-[60px] space-x-2 overflow-hidden">
+            <div class="flex flex-col lg:text-start text-end sm:text-[100px] text-[60px] space-x-2 overflow-hidden">
                 <div class="animate-in slide-in-from-bottom duration-1500" class:md:hidden={$scrollY < 90} class:md:running={$scrollY > 300} class:md:paused={$scrollY <= 300}>
                     LILIENTHAL
                 </div>
@@ -56,7 +56,7 @@
             <img class="object-contain rounded-4xl max-h-160 {$wiggle ? "animate-spring" : ""}" src="/images/keyboard-wide.jpg" alt="Joshua Lilienthal | Fullstack Engineer"/>
         </div>
     </div>
-    <div id="intersectionCont" class="flex flex-1 lg:flex-row flex-col w-full gap-4">        
+    <div id="intersectionCont" class="flex flex-1 lg:flex-row flex-col w-full gap-14">        
         <div class="flex flex-1 md:justify-start">
             <div class={lgTextClass + " text-neutral-600"} id="gallery">
                 AT THE INTERSECTION OF TECHNOLOGY AND CREATIVITY&nbsp;—
@@ -68,10 +68,10 @@
             </div>
         </div>
     </div>
-    <div id="modernCont" class="flex lg:flex-row flex-col-reverse w-full justify-end items-center gap-20">
+    <div id="modernCont" class="flex lg:flex-row flex-col-reverse w-full justify-end items-center gap-6">
         <div class="flex-1">
             <div class="text-[30px] md:text-[38px] lg:text-[30px] 2xl:text-[36px]">
-                  MODERN FRONTEND FRAMEWORKS AND SCALABLE BACKEND SOLUTIONS&nbsp;— <br> DYNAMIC APPLICATIONS, INTUITIVE INTERFACES, AND ROBUST INFRASTRUCTURE. SPANNING REACT, NEXT.JS, SVELTE, NODE.JS, AND GRAPHQL—EVERY DIGITAL EXPERIENCE SHOULD BE BOTH BEAUTIFUL AND FUNCTIONAL.
+                  MODERN FRONTEND FRAMEWORKS AND SCALABLE BACKEND SOLUTIONS&nbsp;— <br> DYNAMIC APPLICATIONS, INTUITIVE INTERFACES, AND ROBUST INFRASTRUCTURE. SPANNING REACT, NEXT.JS, SVELTE, NODE.JS, AND GRAPHQL.
             </div>
         </div>
         <div id="secondPhotoCont" class="relative flex lg:flex-2 md:h-[700px] h-[400px] items-center w-full">
@@ -82,7 +82,7 @@
                 </div>
             </div>
             <div
-                id="photoContainer"
+                id="stretchContainer"
                 class="relative overflow-hidden w-full transition-all duration-500 ease-in-out"
                 class:h-[200px]={!expanded}
                 class:h-[400px]={expanded}
@@ -103,6 +103,13 @@
                     alt="Joshua Lilienthal | Fullstack Engineer"
                 />
           </div>
+        </div>
+    </div>
+    <div id="everyDigitalCont" class="flex flex-1 w-full justify-end lg:justify-start">
+        <div class={lgTextCont}>
+            <div class={lgTextClass + " text-end lg:text-start"}>
+                EVERY DIGITAL EXPERIENCE SHOULD BE BEAUTIFUL AND FUNCTIONAL.
+            </div>
         </div>
     </div>
 </div>
