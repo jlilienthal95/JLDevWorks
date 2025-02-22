@@ -1,6 +1,6 @@
 <script lang='ts'>
     import { onDestroy } from 'svelte';
-    import { scrollY, wiggle } from "../store.js";
+    import { scrollY, scrollThreshold, wiggle } from "../store.js";
 
     const lgTextCont = "md:w-2/3 w-full"
     const lgTextClass = "text-[50px] sm:text-[60px] md:text-[75px] xl:text-[100px]"
@@ -30,7 +30,7 @@
 </script>
 
 <div class="flex flex-col flex-1 h-full w-full justify-center items-center mt-4 lg:gap-40 gap-14">
-    <div id="beautifulCont" class="pt-22 flex md:flex-row flex-col w-full justify-start items-center">
+    <div id="beautifulCont" class="pt-16 flex md:flex-row flex-col w-full justify-start items-center">
         <div class="flex flex-1 w-full">
             <div class={lgTextCont}>
                 <div id="headline" class={lgTextClass}>
@@ -42,12 +42,12 @@
     <div id="joshuaCont" class="flex lg:flex-row flex-col w-full md:justify-between sm:items-end lg:items-center items-center gap-20 overflow-hidden">
         <div id="nameCont" class="flex flex-col w-full h-[180px] sm:h-[310px] justify-center">
             <div class="flex flex-col lg:text-start text-end sm:text-[100px] text-[60px] space-x-2 overflow-hidden">
-                <div class="animate-in slide-in-from-bottom duration-1200" class:md:hidden={$scrollY < 90} class:md:running={$scrollY > 300} class:md:paused={$scrollY <= 300}>
+                <div class="animate-in slide-in-from-bottom duration-1200" class:hidden={$scrollY < 70} class:running={$scrollY > $scrollThreshold} class:paused={$scrollY <= $scrollThreshold}>
                     JOSHUA
                 </div>
             </div>
             <div class="flex flex-col lg:text-start text-end sm:text-[100px] text-[60px] space-x-2 overflow-hidden">
-                <div class="animate-in slide-in-from-bottom duration-1500" class:md:hidden={$scrollY < 90} class:md:running={$scrollY > 300} class:md:paused={$scrollY <= 300}>
+                <div class="animate-in slide-in-from-bottom duration-1500" class:hidden={$scrollY < 70} class:running={$scrollY > $scrollThreshold} class:paused={$scrollY <= $scrollThreshold}>
                     LILIENTHAL
                 </div>
             </div>

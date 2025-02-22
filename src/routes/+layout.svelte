@@ -2,7 +2,7 @@
 	import '../app.css';
 	import { onMount } from "svelte";
 	import { derived } from "svelte/store";
-	import { scrollY } from '../store'; // Store scroll position
+	import { scrollY, scrollThreshold } from '../store'; // Store scroll position
 
 	let { children } = $props();
 
@@ -39,8 +39,18 @@
     }
 
 	onMount(() => {
-		const handleScroll = () => scrollY.set(window.scrollY);
+		const handleScroll = () => {
+			scrollY.set(window.scrollY)
+			// Adjust threshold based on screen width
+			console.log('innerWidth:', window.innerWidth, "scrollY:", window.scrollY);
+			if (window.innerWidth < 768) {
+        		scrollThreshold.set(150); // Lower threshold for mobile
+      		} else {
+        		scrollThreshold.set(300); // Default threshold
+      		}
+		};
 		window.addEventListener('scroll', handleScroll);
+		window.addEventListener("resize", handleScroll); // Recalculate on resize
 		return () => {
 				window.removeEventListener('scroll', handleScroll); // Cleanup func
 			};
