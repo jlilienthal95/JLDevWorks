@@ -8,8 +8,9 @@
     font-style: normal;
 }
 
-body {
+html, body {
   font-family: 'Jost', sans-serif;
+  overscroll-behavior: none;
 }
 
 @keyframes wiggle {

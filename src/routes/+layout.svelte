@@ -2,8 +2,7 @@
 	import '../app.css';
 	import { onMount } from "svelte";
 	import { derived } from "svelte/store";
-	import { scrollY, scrollThreshold } from '../store'; // Store scroll position
-	import { fade } from 'svelte/transition';
+	import { scrollY, scrollThreshold, toggleHeader } from '../store'; // Store scroll position
 
 	let { children } = $props();
 
@@ -33,6 +32,12 @@
       		} else {
         		scrollThreshold.set(300); // Default threshold
       		}
+			if($scrollY + window.innerHeight >= document.documentElement.scrollHeight){
+				console.log('no header')
+				toggleHeader.set(false);
+			} else{
+				toggleHeader.set(true);
+			}
 		};
 		window.addEventListener('scroll', handleScroll);
 		window.addEventListener("resize", handleScroll); // Recalculate on resize
@@ -45,15 +50,16 @@
 </script>
 
 <div class="relative min-h-screen h-auto w-full bg-cover bg-blue-50 font-bold">
+	{#if $toggleHeader}
 	<div id="header" class="flex flex-row fixed w-full md:h-42 h-30 justify-between items-center lg:px-40 pr-12 z-100 bg-gradient-to-b to-transparent from-black/30 backdrop-blur-sm" style="height: {$headerHeight}px;">
 		<div id="logo" class="relative h-full overflow-hidden justify-center">
 			<a href="/" class="hover:opacity-60">
-				<img class="h-full max-h-full object-contain animate-in slide-in-from-left duration-1000 delay-500" class:hidden={$scrollY >= 1}
+				<!-- <img class="h-full max-h-full object-contain animate-in slide-in-from-left duration-1000 delay-500" class:hidden={$scrollY >= 1}
 					src='/JLDevWorksLogo.png'
 					alt="JL DevWorks"
 					oncontextmenu={disableLongPress}
-					ontouchstart={disableLongPress}/>
-				<img class="h-full max-h-full md:max-w-xs max-w-50 object-contain animate-in slide-in-from-bottom duration-1000" class:hidden={$scrollY < 1} class:block={$scrollY >= 1}
+					ontouchstart={disableLongPress}/> -->
+				<img class="h-full max-h-full md:max-w-xs max-w-45 object-contain animate-in slide-in-from-bottom duration-1000"
 					src='/JLDevWorksSimple.png'
 					alt="JL DevWorks"
 					oncontextmenu={disableLongPress}
@@ -102,7 +108,8 @@
 			</a>
 		</div> -->
 	</div>
-	<div class="relative flex flex-col justify-center items-center pt-60 flex-1 px-6">
+	{/if}
+	<div class="relative flex flex-col justify-center items-center pt-60 flex-1">
 		{@render children()}
 	</div>
 </div>

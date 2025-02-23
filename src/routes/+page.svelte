@@ -3,10 +3,11 @@
     import { scrollY, scrollThreshold, wiggle } from "../store.js";
 	import { fade } from 'svelte/transition';
 	import { page } from '$app/stores';
+    import { derived } from "svelte/store";
 
     //styling classes
     const lgTextCont = "md:w-2/3 w-full"
-    const lgTextClass = "text-[50px] sm:text-[60px] md:text-[75px] xl:text-[100px]"
+    const lgTextClass = "text-[50px] sm:text-[60px] md:text-[72px] xl:text-[92px]"
     const smTextClass = "text-[30px] md:text-[38px] lg:text-[30px] xl:text-[38px]"
 
     //current state of expanding image
@@ -14,6 +15,17 @@
 
     //navigation variable
     let currentPath = $page.url.pathname;
+
+    //background opacity from scrollY
+    const bgOpacity = derived(scrollY, ($scrollY) =>  {
+        const threshold = 1100
+        if($scrollY > threshold){
+            console.log('threshold met!')
+            return ($scrollY - threshold) * 0.15
+        } else{
+            return 0;
+        }
+    })
     
     function disableLongPress(event: TouchEvent | MouseEvent) {
         event.preventDefault();
@@ -42,7 +54,7 @@
 
 {#if currentPath === "/"}
     <div class="flex flex-col flex-1 h-full w-full justify-center items-center mt-4 lg:gap-40 gap-14" transition:fade>
-        <div id="beautifulCont" class="pt-16 flex md:flex-row flex-col w-full justify-start items-center">
+        <div id="beautifulCont" class="pt-16 flex md:flex-row flex-col w-full justify-start items-center px-6">
             <div class="flex flex-1 w-full ">
                 <div class={lgTextCont}>
                     <div id="headline" class={lgTextClass}>
@@ -51,7 +63,7 @@
                 </div>
             </div>
         </div>
-        <div id="joshuaCont" class="flex lg:flex-row flex-col w-full md:justify-between sm:items-end lg:items-center items-center gap-20 overflow-hidden">
+        <div id="joshuaCont" class="flex lg:flex-row flex-col w-full md:justify-between sm:items-end lg:items-center items-center px-6 gap-20 overflow-hidden">
             <div id="nameCont" class="flex flex-col w-full h-[180px] sm:h-[310px] justify-center">
                 <div class="flex flex-col lg:text-start text-end sm:text-[100px] text-[60px] space-x-2 overflow-hidden">
                     <div class="animate-in slide-in-from-bottom duration-1200" class:hidden={$scrollY < 70} class:running={$scrollY > $scrollThreshold} class:paused={$scrollY <= $scrollThreshold}>
@@ -68,7 +80,7 @@
                 <img class="object-contain rounded-4xl max-h-160 {$wiggle ? "animate-spring" : ""}" src="/images/keyboard-wide.jpg" alt="Joshua Lilienthal | Fullstack Engineer"/>
             </div>
         </div>
-        <!-- <div id="intersectionCont" class="flex flex-1 lg:flex-row flex-col w-full gap-14">        
+        <!-- <div id="intersectionCont" class="flex flex-1 lg:flex-row flex-col w-full px-6 gap-14">        
             <div class="flex flex-1 md:justify-start">
                 <div class={lgTextClass + " text-neutral-600"} id="gallery">
                     AT THE INTERSECTION OF TECHNOLOGY AND CREATIVITY&nbsp;—
@@ -80,7 +92,7 @@
                 </div>
             </div>
         </div> -->
-        <div id="modernCont" class="flex lg:flex-row flex-col-reverse w-full justify-end items-center gap-6">
+        <div id="modernCont" class="flex lg:flex-row flex-col-reverse w-full justify-end items-center px-6 gap-6">
             <div class="flex flex-1 w-full justify-end items-end">
                 <div class="text-[30px] md:text-[38px] lg:text-[30px] 2xl:text-[42px] md:w-2/3 text-end">
                     MODERN FRONTEND FRAMEWORKS AND SCALABLE BACKEND SOLUTIONS&nbsp;— <br> DYNAMIC APPLICATIONS, INTUITIVE INTERFACES, AND ROBUST INFRASTRUCTURE. SPANNING REACT, NEXT.JS, SVELTE, NODE.JS, AND GRAPHQL.
@@ -117,9 +129,9 @@
                 </div>
             </div> -->
         </div>
-        <div id="everyDigitalCont" class="flex flex-1 w-full justify-end lg:justify-start">
-            <div class={lgTextCont}>
-                <div class={lgTextClass + " text-end lg:text-start"}>
+        <div id="everyDigitalCont" class="flex flex-1 w-full justify-end lg:justify-start px-6 bg-black" style="background-color: rgba(0, 0, 0, {$bgOpacity / 100});">
+            <div class={lgTextCont +" h-screen items-end flex"}>
+                <div class={lgTextClass + " text-end lg:text-start text-white"}>
                     EVERY DIGITAL EXPERIENCE SHOULD BE BEAUTIFUL AND FUNCTIONAL.
                 </div>
             </div>
