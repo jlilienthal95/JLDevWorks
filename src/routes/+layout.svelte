@@ -55,7 +55,7 @@
 
 <div class="relative min-h-screen h-auto w-full bg-cover font-bold duration-500"
 	class:bg-blue-50={!$bgDim}
-	class:bg-slate-400={$bgDim}>
+	class:bg-slate-500={$bgDim}>
 	{#if $toggleHeader}
 	<div id="header" class="flex flex-row fixed w-full md:h-42 h-30 justify-between items-center lg:px-40 pr-12 z-100 bg-gradient-to-b to-transparent from-black/30 backdrop-blur-sm" style="height: {$headerHeight}px;">
 		<div id="logo" class="relative h-full overflow-hidden justify-center">

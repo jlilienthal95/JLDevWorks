@@ -55,7 +55,7 @@
         </div>
     </div>
     <div id="joshuaCont" class="flex lg:flex-row flex-col w-full md:justify-between sm:items-end lg:items-center items-center px-6 gap-20 overflow-hidden">
-        <div id="nameCont" class="flex flex-col w-full h-[180px] sm:h-[310px] justify-center">
+        <div id="nameCont" class="flex flex-col md:w-min w-full h-[180px] sm:h-[310px] justify-center">
             <div class="flex flex-col lg:text-start text-end sm:text-[100px] text-[60px] space-x-2 overflow-hidden">
                 <div class="animate-in slide-in-from-bottom duration-1200" class:hidden={$scrollY < 70} class:running={$scrollY > $scrollThreshold} class:paused={$scrollY <= $scrollThreshold}>
                     JOSHUA
@@ -68,12 +68,7 @@
             </div>
         </div>
         <div id="firstPhotoCont" class="relative flex rounded-4xl overflow-hidden">
-            <img class="object-contain max-h-160" src="/images/keyboard-wide.jpg" alt="Person Typing on Keyboard, with Mouse, Watch and Phone on Desk"/>
-            <div class="absolute flex w-full h-full items-center justify-center lg:text-[8vw] text-[18vw] hover:backdrop-blur-lg hover:text-white">
-                <a href="/about">
-                    MY &nbsp;WORK
-                </a>
-            </div>
+            <img class="object-contain" src="/images/pointing-cropped.png" alt="Person Typing on Keyboard, with Mouse, Watch and Phone on Desk"/>
         </div>
     </div>
     <!-- <div id="intersectionCont" class="flex flex-1 lg:flex-row flex-col w-full px-6 gap-14">        
