@@ -34,8 +34,8 @@
     </div>
     <div id="portfolioContainer" class="flex flex-1 justify-center items-center w-full h-full xl:mt-[12vh] lg:mt-[6vh] lg:mb-0 mb-20 ">
         <div class="flex flex-col lg:flex-row lg:gap-24 gap-10 w-[90vw] h-full overflow-x-scroll overflow-y-visible justify-center lg:items-start items-center scroll-container">
-            <Portfolio imgSrc="/portfolio/SvariaHome.png" imgAlt="SvARIA" titleClass="text-black text-2xl" titleContent="SvARIA" descriptContent="SvARIA is more than just a website—it’s a mission to enhance the development of accessible apps through a powerful, ARIA-compliant component library for Svelte, built for speed and inclusivity."/>
-            <Portfolio imgSrc="/portfolio/JBTravel.png" imgAlt="JB Travel" titleClass="text-black text-2xl" titleContent="JB Travel" descriptContent="JB Travel showcases a beautiful looping video, full screen scroll-snapping UI frames, and a robust SPA design utilizing Next.js and React."/>
+            <Portfolio imgSrc="/portfolio/SvariaHome.png" imgAlt="SvARIA" titleClass="text-black text-2xl" titleContent="SvARIA" descriptContent="SvARIA is more than just a website—it’s a mission to enhance the development of accessible apps through a powerful, ARIA-compliant component library for Svelte, built for speed and inclusivity." url="http://www.svaria.com"/>
+            <Portfolio imgSrc="/portfolio/JBTravel.png" imgAlt="JB Travel" titleClass="text-black text-2xl" titleContent="JB Travel" descriptContent="JB Travel showcases a beautiful looping video, full screen scroll-snapping UI frames, and a robust SPA design utilizing Next.js and React." url="https://www.jbtravel.co"/>
         </div>
     </div>
 </div>
