@@ -2,7 +2,8 @@
 	import '../app.css';
 	import { onMount } from "svelte";
 	import { derived } from "svelte/store";
-	import { scrollY, scrollThreshold, toggleHeader } from '../store'; // Store scroll position
+	import { scrollY, scrollThreshold, toggleHeader, bgDim } from '../store'; // Store scroll position
+	import { page } from '$app/stores';
 
 	let { children } = $props();
 
@@ -16,6 +17,9 @@
 	// Reactive height calculation
 	const headerHeight = derived(scrollY, ($scrollY) => Math.max(minHeight, maxHeight - $scrollY * shrinkRate));
 	const headerThreshold = maxHeight - minHeight / shrinkRate;
+
+	//get currentPath to check if header should appear
+	let currentPath = $page.url.pathname;
 
 	//disables contextmenues on images
 	function disableLongPress(event: TouchEvent | MouseEvent) {
@@ -32,7 +36,7 @@
       		} else {
         		scrollThreshold.set(300); // Default threshold
       		}
-			if($scrollY + window.innerHeight >= document.documentElement.scrollHeight){
+			if($scrollY + window.innerHeight >= document.documentElement.scrollHeight && currentPath === "/"){
 				console.log('no header')
 				toggleHeader.set(false);
 			} else{
@@ -49,7 +53,9 @@
 
 </script>
 
-<div class="relative min-h-screen h-auto w-full bg-cover bg-blue-50 font-bold">
+<div class="relative min-h-screen h-auto w-full bg-cover font-bold duration-500"
+	class:bg-blue-50={!$bgDim}
+	class:bg-slate-400={$bgDim}>
 	{#if $toggleHeader}
 	<div id="header" class="flex flex-row fixed w-full md:h-42 h-30 justify-between items-center lg:px-40 pr-12 z-100 bg-gradient-to-b to-transparent from-black/30 backdrop-blur-sm" style="height: {$headerHeight}px;">
 		<div id="logo" class="relative h-full overflow-hidden justify-center">
@@ -79,7 +85,7 @@
 			<li class={liClass}>
 				<div class={"animate-in slide-in-from-bottom duration-1500"} id="recentWork">
 					<div class="animate-wiggle-hover">
-						<a href="/about">
+						<a href="/work">
 							Work
 						</a>
 					</div>
