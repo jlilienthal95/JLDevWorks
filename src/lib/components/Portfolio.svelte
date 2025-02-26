@@ -18,7 +18,7 @@
     let expanded = false;
 </script>
 
-<div class={contClass + " relative flex flex-col w-min justify-center rounded-3xl m-2 pb-2"} class:bg-slate-300={expanded}>
+<div class={contClass + " relative flex flex-col w-min justify-center rounded-3xl m-2 pb-2"}>
     <div class="relative overflow-hidden w-full duration-500 rounded-3xl"
         class:notExpanded={!expanded}
         class:expanded={expanded}
@@ -42,13 +42,13 @@
         on:contextmenu={disableLongPress}
         on:touchstart={disableLongPress} >
         <a href={url}>
-            <img class={imgClass + "object-cover w-full h-full"} src={imgSrc} alt={imgAlt}/>
+            <img class={imgClass + " object-cover w-full h-full"} src={imgSrc} alt={imgAlt}/>
         </a>
     </div>
-    <div id="title" class={titleClass + " flex items-center justify-center duration-500"} >
+    <div id="title" class={titleClass + " flex items-center justify-center duration-500"} class:text-gray-100={expanded}>
         {titleContent}
     </div>
-    <div id="Description" class={descriptClass + " flex items-center justify-center text-center duration-500 px-2"} >
+    <div id="Description" class={descriptClass + " flex items-center justify-center text-center duration-500 px-2 text-lg"} class:text-gray-200={expanded}>
         {descriptContent}
     </div>
 </div>

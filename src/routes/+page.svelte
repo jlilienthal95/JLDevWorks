@@ -1,8 +1,8 @@
 <script lang='ts'>
-    import { onDestroy, onMount } from 'svelte';
-    import { scrollY, scrollThreshold, wiggle } from "../store.js";
-	import { fade } from 'svelte/transition';
+    import { scrollY, scrollThreshold } from "../store.js";
+    import { fade, slide  } from 'svelte/transition';
     import { derived } from "svelte/store";
+	import { bounceIn } from "svelte/easing";
 
     //styling classes
     const lgTextCont = "md:w-2/3 w-full"
@@ -17,35 +17,31 @@
         const threshold = 1100
         if($scrollY > threshold){
             console.log('threshold met!')
-            return ($scrollY - threshold) * 0.17
+            return ($scrollY - threshold) * 0.19
         } else{
             return 0;
         }
     })
     
-    function disableLongPress(event: TouchEvent | MouseEvent) {
-        event.preventDefault();
-    }
-    
     // Toggle the wiggle every 10 seconds
-    const interval = setInterval(() => {
-        // Start the wiggle animation
-        wiggle.set(true);
+    // const interval = setInterval(() => {
+    //     // Start the wiggle animation
+    //     wiggle.set(true);
 
-        // Stop the animation after 1 second (animation duration)
-        setTimeout(() => {
-            wiggle.set(false);
-        }, 1000); // animation duration
-    }, 10000); // 10 seconds interval
+    //     // Stop the animation after 1 second (animation duration)
+    //     setTimeout(() => {
+    //         wiggle.set(false);
+    //     }, 1000); // animation duration
+    // }, 10000); // 10 seconds interval
 
-    // Clear the interval when the component is destroyed to avoid memory leaks
-    onDestroy(() => {
-        clearInterval(interval);
-    });
+    // // Clear the interval when the component is destroyed to avoid memory leaks
+    // onDestroy(() => {
+    //     clearInterval(interval);
+    // });
 </script>
 
-<div class="flex flex-col flex-1 h-full w-full justify-center items-center mt-4 lg:gap-40 gap-14" transition:fade>
-    <div id="beautifulCont" class="pt-16 flex md:flex-row flex-col w-full justify-start items-center px-6">
+<div class="flex flex-col flex-1 h-full w-full justify-center items-center mt-4 lg:gap-40 gap-14" out:fade={{ delay: 100, duration: 500 }} in:slide={{ duration: 1000, easing: bounceIn }} >
+    <div id="beautifulCont" class="pt-16 flex md:flex-row flex-col w-full justify-start items-center px-6" transition:fade={{ delay: 1000}}>
         <div class="flex flex-1 w-full ">
             <div class={lgTextCont}>
                 <div id="headline" class={lgTextClass}>

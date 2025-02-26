@@ -57,63 +57,63 @@
 	class:bg-blue-50={!$bgDim}
 	class:bg-slate-500={$bgDim}>
 	{#if $toggleHeader}
-	<div id="header" class="flex flex-row fixed w-full md:h-42 h-30 justify-between items-center lg:px-40 pr-12 z-100 bg-gradient-to-b to-transparent from-black/30 backdrop-blur-sm" style="height: {$headerHeight}px;">
-		<div id="logo" class="relative h-full overflow-hidden justify-center">
-			<a href="/" class="hover:opacity-60">
-				<!-- <img class="h-full max-h-full object-contain animate-in slide-in-from-left duration-1000 delay-500" class:hidden={$scrollY >= 1}
-					src='/JLDevWorksLogo.png'
-					alt="JL DevWorks"
-					oncontextmenu={disableLongPress}
-					ontouchstart={disableLongPress}/> -->
-				<img class="h-full max-h-full md:max-w-xs max-w-45 object-contain animate-in slide-in-from-bottom duration-1000"
-					src='/JLDevWorksSimple.png'
-					alt="JL DevWorks"
-					oncontextmenu={disableLongPress}
-					ontouchstart={disableLongPress}/>
-			</a>
+		<div id="header" class="flex flex-row fixed w-full md:h-42 h-30 justify-between items-center lg:px-40 pr-4 z-100 bg-gradient-to-b to-transparent from-black/30 backdrop-blur-sm" style="height: {$headerHeight}px;">
+			<div id="logo" class="relative h-full overflow-hidden justify-center">
+				<a href="/" class="hover:opacity-60">
+					<!-- <img class="h-full max-h-full object-contain animate-in slide-in-from-left duration-1000 delay-500" class:hidden={$scrollY >= 1}
+						src='/JLDevWorksLogo.png'
+						alt="JL DevWorks"
+						oncontextmenu={disableLongPress}
+						ontouchstart={disableLongPress}/> -->
+					<img class="h-full max-h-full md:max-w-xs max-w-45 object-contain animate-in slide-in-from-bottom duration-1000"
+						src='/JLDevWorksSimple.png'
+						alt="JL DevWorks"
+						oncontextmenu={disableLongPress}
+						ontouchstart={disableLongPress}/>
+				</a>
+			</div>
+			<ul class="flex flex-row md:gap-4 gap-2 md:text-xl text-md" id="links">
+				<li class={liClass}>
+					<div class={"animate-in slide-in-from-bottom duration-1000"} id="about">
+						<div class="animate-wiggle-hover">
+							<a href="/about">
+								About
+							</a>
+						</div>
+					</div>
+				</li>
+				<li class={liClass}>
+					<div class={"animate-in slide-in-from-bottom duration-1500"} id="recentWork">
+						<div class="animate-wiggle-hover">
+							<a href="/work">
+								Work
+							</a>
+						</div>
+					</div>
+				</li>
+				<li class={liClass}>
+					<div class={"animate-in slide-in-from-bottom duration-2000"} id="contact">
+						<div class="animate-wiggle-hover">
+							<a href="/contact">
+								Contact
+							</a>
+						</div>
+					</div>
+				</li>
+			</ul>
+			<!-- <div id= "contactInfo" class="md:flex flex-col hidden">
+				<a href="tel:999999apps" class={linkClass}>
+					<div id="phone">
+						999-999-APPS
+					</div>
+				</a>
+				<a href="mailto:JLDevWorks@gmail.com" class={linkClass}>
+					<div id="email">
+						JLDevWorks@gmail.com
+					</div>
+				</a>
+			</div> -->
 		</div>
-		<ul class="flex flex-row md:gap-4 gap-2 md:text-xl text-md" id="links">
-			<li class={liClass}>
-				<div class={"animate-in slide-in-from-bottom duration-1000"} id="about">
-					<div class="animate-wiggle-hover">
-						<a href="/about">
-							About
-						</a>
-					</div>
-				</div>
-			</li>
-			<li class={liClass}>
-				<div class={"animate-in slide-in-from-bottom duration-1500"} id="recentWork">
-					<div class="animate-wiggle-hover">
-						<a href="/work">
-							Work
-						</a>
-					</div>
-				</div>
-			</li>
-			<li class={liClass}>
-				<div class={"animate-in slide-in-from-bottom duration-2000"} id="contact">
-					<div class="animate-wiggle-hover">
-						<a href="/about">
-							Contact
-						</a>
-					</div>
-				</div>
-			</li>
-		</ul>
-		<!-- <div id= "contactInfo" class="md:flex flex-col hidden">
-			<a href="tel:999999apps" class={linkClass}>
-				<div id="phone">
-					999-999-APPS
-				</div>
-			</a>
-			<a href="mailto:JLDevWorks@gmail.com" class={linkClass}>
-				<div id="email">
-					JLDevWorks@gmail.com
-				</div>
-			</a>
-		</div> -->
-	</div>
 	{/if}
 	<div class="relative flex flex-col justify-center items-center pt-60 flex-1">
 		{@render children()}
@@ -127,4 +127,5 @@
 		font-weight: 300;
 		font-style: normal;
   	}
+	
 </style>
