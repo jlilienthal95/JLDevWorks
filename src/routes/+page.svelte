@@ -40,7 +40,7 @@
     // });
 </script>
 
-<div class="flex flex-col h-full w-full justify-center items-center mt-4 lg:gap-40 gap-14" in:fade={{ duration: 500 }} >
+<div class="flex flex-col h-full w-full justify-center items-center mt-4 lg:gap-40 gap-14" in:fade={{ duration: 500, delay: 300 }} >
     <div id="beautifulCont" class="flex md:flex-row flex-col w-full justify-start items-end px-6 pt-16 " >
         <div class="flex flex-1 w-full ">
             <div class={lgTextCont}>

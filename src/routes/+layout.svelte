@@ -77,7 +77,7 @@
 				<li class={liClass}>
 					<div class={"animate-in slide-in-from-bottom duration-1000"} id="about">
 						<div class="animate-wiggle-hover">
-							<a href="/about">
+							<a href="/">
 								About
 							</a>
 						</div>

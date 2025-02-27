@@ -31,7 +31,7 @@
                 </div>
             {/each}
         </div>
-        <div class="flex lg:hidden flex-row text-[50px] sm:text-[60px] md:text-[72px] h-[55px] items-center justify-center overflow-hidden animate-in slide-in-bottom duration-1000">
+        <div out:fade={{ duration: 100}} class="flex lg:hidden flex-row text-[50px] sm:text-[60px] md:text-[72px] h-[55px] items-center justify-center overflow-hidden animate-in slide-in-bottom duration-1000">
             WORK
         </div>
     </div>
