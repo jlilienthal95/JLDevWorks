@@ -19,7 +19,7 @@
     });
 </script>
 
-<div class="flex lg:flex-row flex-col w-full items-start" in:fade={{ duration: 500 }} out:slide={{ duration: 1500, easing: bounceOut }} >
+<div class="flex lg:flex-row flex-col w-full items-start" in:fade={{ duration: 500 }} out:slide={{ duration: 1500 }} >
     <div id="headline" class="flex w-full h-max justify-center items-center pb-6 overflow-hidden">
         <div class="hidden lg:flex flex-row lg:flex-col text-[50px] sm:text-[60px] md:text-[72px] xl:text-[92px] h-[55px] lg:h-fit items-center justify-center overflow-hidden">
             {#each ['W', 'O', 'R', 'K'] as letter, i}
