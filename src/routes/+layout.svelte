@@ -4,10 +4,11 @@
 	import { derived } from "svelte/store";
 	import { scrollY, scrollThreshold, toggleHeader, bgDim } from '../store'; // Store scroll position
 	import { page } from '$app/stores';
+	import { fade } from 'svelte/transition';
 
 	let { children } = $props();
 
-	const liClass = "flex flex-row after:content-['|'] after:ml-2 md:after:ml-4 last:after:content-none animate-in fade-in duration-2000"
+	const liClass = "animate-in fade-in duration-2000"
 
 	//variables and state for header and scroll tracking
   	const maxHeight = 200; // Max header height
@@ -58,7 +59,7 @@
 	class:bg-blue-50={!$bgDim}
 	class:bg-slate-500={$bgDim}>
 	{#if $toggleHeader && $currentPath !== "/contact"}
-		<div id="header" class="flex flex-row fixed w-full md:h-42 h-30 justify-between items-center lg:px-40 pr-4 z-100 bg-gradient-to-b to-transparent from-black/30 backdrop-blur-sm" style="height: {$headerHeight}px;">
+		<div id="header" in:fade={{ delay: 700 }} class="flex flex-row fixed w-full md:h-42 h-30 justify-between items-center lg:px-40 pr-4 z-100 bg-gradient-to-b to-transparent from-black/30 backdrop-blur-sm" style="height: {$headerHeight}px;">
 			<div id="logo" class="relative h-full overflow-hidden justify-center">
 				<a href="/" class="hover:opacity-60">
 					<!-- <img class="h-full max-h-full object-contain animate-in slide-in-from-left duration-1000 delay-500" class:hidden={$scrollY >= 1}
@@ -73,18 +74,24 @@
 						ontouchstart={disableLongPress}/>
 				</a>
 			</div>
-			<ul class="flex flex-row md:gap-4 gap-2 md:text-xl text-md" id="links">
+			<ul class="flex flex-row md:gap-4 gap-2 md:text-xl text-md items-center" id="links">
 				<li class={liClass}>
-					<div class={"animate-in slide-in-from-bottom duration-1000"} id="about">
-						<div class="animate-wiggle-hover">
-							<a href="/">
-								About
-							</a>
-						</div>
+					<div class="relative animate-in slide-in-from-bottom duration-1500 grayscale-60" id="socials">
+							<div class=" relative flex flex-row h-fit w-fit items-center">
+								<a href="https://www.linkedin.com/in/joshlilienthal/" target="_blank" aria-label="My LinkedIn" class="animate-wiggle-hover">
+									<img src="./linkedin.png" alt="LinkedIn Logo" class="object-contain max-w-13"/>
+								</a>
+								<a href="https://github.com/jlilienthal95/" target="_blank" aria-label="My GitHub" class="animate-wiggle-hover">
+									<img src="./github.png" alt="Github Logo" class="object-contain max-w-11"/>
+								</a>
+							</div>
 					</div>
 				</li>
 				<li class={liClass}>
-					<div class={"animate-in slide-in-from-bottom duration-1500"} id="recentWork">
+					|
+				</li>
+				<li class={liClass}>
+					<div class={"animate-in slide-in-from-bottom duration-2000"} id="recentWork">
 						<div class="animate-wiggle-hover">
 							<a href="/work">
 								Work
@@ -93,7 +100,10 @@
 					</div>
 				</li>
 				<li class={liClass}>
-					<div class={"animate-in slide-in-from-bottom duration-2000"} id="contact">
+					|
+				</li>
+				<li class={liClass}>
+					<div class={"animate-in slide-in-from-bottom duration-2500"} id="contact">
 						<div class="animate-wiggle-hover">
 							<a href="/contact">
 								Contact
