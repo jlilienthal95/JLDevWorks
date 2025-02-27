@@ -76,21 +76,6 @@
 			</div>
 			<ul in:fade={{ delay: 700 }} class="flex flex-row md:gap-4 gap-2 md:text-xl text-md items-center" id="links">
 				<li class={liClass}>
-					<div class="relative animate-in slide-in-from-bottom duration-1500 grayscale-60" id="socials">
-							<div class=" relative flex flex-row h-fit w-fit items-center">
-								<a href="https://www.linkedin.com/in/joshlilienthal/" target="_blank" aria-label="My LinkedIn" class="animate-wiggle-hover">
-									<img src="./linkedin.png" alt="LinkedIn Logo" class="object-contain max-w-13"/>
-								</a>
-								<a href="https://github.com/jlilienthal95/" target="_blank" aria-label="My GitHub" class="animate-wiggle-hover">
-									<img src="./github.png" alt="Github Logo" class="object-contain max-w-11"/>
-								</a>
-							</div>
-					</div>
-				</li>
-				<li class={liClass}>
-					|
-				</li>
-				<li class={liClass}>
 					<div class={"animate-in slide-in-from-bottom duration-2000"} id="recentWork">
 						<div class="animate-wiggle-hover">
 							<a href="/work">
@@ -107,6 +92,21 @@
 						<div class="animate-wiggle-hover">
 							<a href="/contact">
 								Contact
+							</a>
+						</div>
+					</div>
+				</li>
+				<li class={liClass}>
+					|
+				</li>
+				<li class={liClass}>
+					<div class="relative animate-in slide-in-from-bottom duration-1500 grayscale-60" id="socials">
+						<div class=" relative flex flex-row h-fit w-fit items-center">
+							<a href="https://www.linkedin.com/in/joshlilienthal/" target="_blank" aria-label="My LinkedIn" class="animate-wiggle-hover">
+								<img src="./linkedin.png" alt="LinkedIn Logo" class="object-contain max-w-10"/>
+							</a>
+							<a href="https://github.com/jlilienthal95/" target="_blank" aria-label="My GitHub" class="animate-wiggle-hover">
+								<img src="./github.png" alt="Github Logo" class="object-contain max-w-8"/>
 							</a>
 						</div>
 					</div>
