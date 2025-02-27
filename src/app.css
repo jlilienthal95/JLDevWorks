@@ -52,6 +52,10 @@ animation: wiggle 0.5s infinite ease-in-out;
   animation: wiggle 0.5s 2 ease-in-out;
 }
 
+.animate-wiggleSm-hover:hover {
+  animation: wiggleSm 0.5s 2 ease-in-out;
+}
+
 .animate-wiggle-twice {
   animation: wiggleSm 0.5s 2 ease-in-out;
 }

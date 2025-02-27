@@ -19,7 +19,7 @@
 	const headerThreshold = maxHeight - minHeight / shrinkRate;
 
 	//get currentPath to check if header should appear
-	let currentPath = $page.url.pathname;
+	let currentPath = derived(page, ($page) =>  $page.url.pathname);
 
 	//disables contextmenues on images
 	function disableLongPress(event: TouchEvent | MouseEvent) {
@@ -31,12 +31,13 @@
 			scrollY.set(window.scrollY)
 			// Adjust threshold based on screen width
 			console.log('innerWidth:', window.innerWidth, "scrollY:", window.scrollY);
+			console.log('currentPath:', currentPath);
 			if (window.innerWidth < 768) {
         		scrollThreshold.set(150); // Lower threshold for mobile
       		} else {
         		scrollThreshold.set(300); // Default threshold
       		}
-			if($scrollY + window.innerHeight >= document.documentElement.scrollHeight && currentPath === "/"){
+			if($scrollY + window.innerHeight >= document.documentElement.scrollHeight && $currentPath === "/"){
 				console.log('no header')
 				toggleHeader.set(false);
 			} else{
@@ -56,7 +57,7 @@
 <div class="relative min-h-screen h-auto w-full bg-cover font-bold duration-500"
 	class:bg-blue-50={!$bgDim}
 	class:bg-slate-500={$bgDim}>
-	{#if $toggleHeader}
+	{#if $toggleHeader && $currentPath !== "/contact"}
 		<div id="header" class="flex flex-row fixed w-full md:h-42 h-30 justify-between items-center lg:px-40 pr-4 z-100 bg-gradient-to-b to-transparent from-black/30 backdrop-blur-sm" style="height: {$headerHeight}px;">
 			<div id="logo" class="relative h-full overflow-hidden justify-center">
 				<a href="/" class="hover:opacity-60">

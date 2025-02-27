@@ -3,11 +3,12 @@
 	import { onMount } from "svelte";
 	import { fade } from "svelte/transition";
     import { slide } from 'svelte/transition';
-    import { bounceOut } from 'svelte/easing';
+    import { bounceIn, bounceOut } from 'svelte/easing';
 
     let delayDone = [false, false, false, false]; // Array to track each letter's delay
-
-    const delays = [1000, 1400, 1900, 2400]; // Custom delay times for each letter
+    
+    const minDelay = 700
+    const delays = [minDelay, minDelay + 500, minDelay + 1000, minDelay + 1500]; // Custom delay times for each letter
 
     onMount(() => {
         delays.forEach((d, i) => {
@@ -18,7 +19,7 @@
     });
 </script>
 
-<div class="flex lg:flex-row flex-col w-full items-start" in:fade={{ duration: 1000 }} out:slide={{ duration: 1000, easing:bounceOut }}>
+<div class="flex lg:flex-row flex-col w-full items-start" in:fade={{ duration: 500 }} out:slide={{ duration: 1500, easing: bounceOut }} >
     <div id="headline" class="flex w-full h-max justify-center items-center pb-6 overflow-hidden">
         <div class="hidden lg:flex flex-row lg:flex-col text-[50px] sm:text-[60px] md:text-[72px] xl:text-[92px] h-[55px] lg:h-fit items-center justify-center overflow-hidden">
             {#each ['W', 'O', 'R', 'K'] as letter, i}

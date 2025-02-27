@@ -2,7 +2,7 @@
     import { scrollY, scrollThreshold } from "../store.js";
     import { fade, slide  } from 'svelte/transition';
     import { derived } from "svelte/store";
-	import { bounceIn } from "svelte/easing";
+	import { bounceIn, bounceOut } from "svelte/easing";
 
     //styling classes
     const lgTextCont = "md:w-2/3 w-full"
@@ -40,8 +40,8 @@
     // });
 </script>
 
-<div class="flex flex-col flex-1 h-full w-full justify-center items-center mt-4 lg:gap-40 gap-14" out:fade={{ delay: 100, duration: 500 }} in:slide={{ duration: 1000, easing: bounceIn }} >
-    <div id="beautifulCont" class="pt-16 flex md:flex-row flex-col w-full justify-start items-center px-6" transition:fade={{ delay: 1000}}>
+<div class="flex flex-col h-full w-full justify-center items-center mt-4 lg:gap-40 gap-14" in:fade={{ duration: 500 }} >
+    <div id="beautifulCont" class="flex md:flex-row flex-col w-full justify-start items-end px-6 pt-16 " >
         <div class="flex flex-1 w-full ">
             <div class={lgTextCont}>
                 <div id="headline" class={lgTextClass}>
