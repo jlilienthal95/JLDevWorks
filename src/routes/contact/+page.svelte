@@ -21,11 +21,11 @@
         <div id="uiRowCont" class="flex flex-row w-full justify-end">
             <div id="xCont" class="pt-10">
                 <a href="/" aria-label="home">
-                    <svg class="lg:h-[12vh] md:h-[10vh] h-[7vh]" xmlns="http://www.w3.org/2000/svg" width="20vh" height="20vh" viewBox="0 0 512 512" {...$$props}><path fill="currentColor" d="M256 48a208 208 0 1 1 0 416a208 208 0 1 1 0-416m0 464a256 256 0 1 0 0-512a256 256 0 1 0 0 512m-81-337c-9.4 9.4-9.4 24.6 0 33.9l47 47l-47 47c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l47-47l47 47c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-47-47l47-47c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-47 47l-47-47c-9.4-9.4-24.6-9.4-33.9 0"/></svg>
+                    <svg class="lg:h-[9vh] md:h-[7vh] h-[4vh]" xmlns="http://www.w3.org/2000/svg" width="20vh" height="20vh" viewBox="0 0 512 512" {...$$props}><path fill="currentColor" d="M256 48a208 208 0 1 1 0 416a208 208 0 1 1 0-416m0 464a256 256 0 1 0 0-512a256 256 0 1 0 0 512m-81-337c-9.4 9.4-9.4 24.6 0 33.9l47 47l-47 47c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l47-47l47 47c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-47-47l47-47c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-47 47l-47-47c-9.4-9.4-24.6-9.4-33.9 0"/></svg>
                 </a>
             </div>
         </div>
-        <div class="flex h-full justify-center xl:justify-start xl:items-end items-center">
+        <div class="flex h-full justify-center items-center">
             <div id="contactCont" class="flex flex-col w-min md:px-16 h-min gap-10">
                 <div id="emailCont" class="">
                     <a href="mailto:JLDevWorks@gmail.com">

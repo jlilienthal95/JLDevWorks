@@ -76,7 +76,7 @@
 			</div>
 			<ul in:fade={{ delay: 700 }} class="flex flex-row md:gap-4 gap-2 md:text-xl text-md items-center" id="links">
 				<li class={liClass}>
-					<div class={"animate-in slide-in-from-bottom duration-2000"} id="recentWork">
+					<div class={"animate-in slide-in-from-bottom duration-1500"} id="recentWork">
 						<div class="animate-wiggle-hover">
 							<a href="/work">
 								Work
@@ -88,7 +88,7 @@
 					|
 				</li>
 				<li class={liClass}>
-					<div class={"animate-in slide-in-from-bottom duration-2500"} id="contact">
+					<div class={"animate-in slide-in-from-bottom duration-2000"} id="contact">
 						<div class="animate-wiggle-hover">
 							<a href="/contact">
 								Contact
@@ -100,7 +100,7 @@
 					|
 				</li>
 				<li class={liClass}>
-					<div class="relative animate-in slide-in-from-bottom duration-1500 grayscale-60" id="socials">
+					<div class="relative animate-in slide-in-from-bottom duration-2500 grayscale-60" id="socials">
 						<div class=" relative flex flex-row h-fit w-fit items-center">
 							<a href="https://www.linkedin.com/in/joshlilienthal/" target="_blank" aria-label="My LinkedIn" class="animate-wiggle-hover">
 								<img src="./linkedin.png" alt="LinkedIn Logo" class="object-contain max-w-10"/>
