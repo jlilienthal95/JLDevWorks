@@ -59,7 +59,7 @@
 	class:bg-blue-50={!$bgDim}
 	class:bg-slate-500={$bgDim}>
 	{#if $toggleHeader && $currentPath !== "/contact"}
-		<div id="header" in:fade={{ delay: 700 }} class="flex flex-row fixed w-full md:h-42 h-30 justify-between items-center lg:px-40 pr-4 z-100 bg-gradient-to-b to-transparent from-black/30 backdrop-blur-sm" style="height: {$headerHeight}px;">
+		<div id="header" class="flex flex-row fixed w-full md:h-42 h-30 justify-between items-center lg:px-40 pr-4 z-100 bg-gradient-to-b to-transparent from-black/30 backdrop-blur-sm" style="height: {$headerHeight}px;">
 			<div id="logo" class="relative h-full overflow-hidden justify-center">
 				<a href="/" class="hover:opacity-60">
 					<!-- <img class="h-full max-h-full object-contain animate-in slide-in-from-left duration-1000 delay-500" class:hidden={$scrollY >= 1}
@@ -74,7 +74,7 @@
 						ontouchstart={disableLongPress}/>
 				</a>
 			</div>
-			<ul class="flex flex-row md:gap-4 gap-2 md:text-xl text-md items-center" id="links">
+			<ul in:fade={{ delay: 700 }} class="flex flex-row md:gap-4 gap-2 md:text-xl text-md items-center" id="links">
 				<li class={liClass}>
 					<div class="relative animate-in slide-in-from-bottom duration-1500 grayscale-60" id="socials">
 							<div class=" relative flex flex-row h-fit w-fit items-center">
