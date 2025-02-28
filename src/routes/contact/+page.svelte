@@ -1,15 +1,8 @@
 <script>
 
-	import { fade, fly, slide } from "svelte/transition";
+	import { fade, slide } from "svelte/transition";
 	import { circIn } from "svelte/easing";
 
-    // onMount(() => {
-    //     toggleHeader.set(false);
-    // })
-    
-    // onDestroy(() => {
-    //     toggleHeader.set(true);
-    // })
 
     const lgTextClass = "text-[35px] sm:text-[60px] md:text-[70px] xl:text-[92px]"
     const splitTextClass = "text-[55px] sm:text-[70px]"

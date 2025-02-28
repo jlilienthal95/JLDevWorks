@@ -60,18 +60,18 @@
 	class:bg-slate-500={$bgDim}>
 	{#if $toggleHeader && $currentPath !== "/contact"}
 		<div id="header" class="flex flex-row fixed w-full md:h-42 h-30 justify-between items-center lg:px-40 pr-4 z-100 bg-gradient-to-b to-transparent from-black/30 backdrop-blur-sm" style="height: {$headerHeight}px;">
-			<div id="logo" class="relative h-full overflow-hidden justify-center">
+			<div id="logo" class="flex relative h-full justify-center items-center">
 				<a href="/" class="hover:opacity-60">
-					<!-- <img class="h-full max-h-full object-contain animate-in slide-in-from-left duration-1000 delay-500" class:hidden={$scrollY >= 1}
-						src='/JLDevWorksLogo.png'
-						alt="JL DevWorks"
-						oncontextmenu={disableLongPress}
-						ontouchstart={disableLongPress}/> -->
-					<img class="h-full max-h-full md:max-w-xs max-w-45 object-contain animate-in slide-in-from-bottom duration-1000"
+					<img class="h-full max-h-full md:max-w-xs max-w-45 object-contain animate-in slide-in-from-bottom duration-1000 show-on-lg hide-on-small"
 						src='/JLDevWorksSimple.png'
 						alt="JL DevWorks"
 						oncontextmenu={disableLongPress}
 						ontouchstart={disableLongPress}/>
+					<img class="max-h-full max-w-[20vw] object-contain animate-in slide-in-from-bottom duration-1000 show-on-small hide-on-lg ml-2"
+					src='/JLDevSmNoBg.png'
+					alt="JL DevWorks"
+					oncontextmenu={disableLongPress}
+					ontouchstart={disableLongPress}/>
 				</a>
 			</div>
 			<ul in:fade={{ delay: 700 }} class="flex flex-row md:gap-4 gap-2 md:text-xl text-md items-center" id="links">
@@ -112,18 +112,6 @@
 					</div>
 				</li>
 			</ul>
-			<!-- <div id= "contactInfo" class="md:flex flex-col hidden">
-				<a href="tel:999999apps" class={linkClass}>
-					<div id="phone">
-						999-999-APPS
-					</div>
-				</a>
-				<a href="mailto:JLDevWorks@gmail.com" class={linkClass}>
-					<div id="email">
-						JLDevWorks@gmail.com
-					</div>
-				</a>
-			</div> -->
 		</div>
 	{/if}
 	<div class="relative flex flex-col justify-center items-center pt-60 flex-1">
@@ -138,5 +126,25 @@
 		font-weight: 300;
 		font-style: normal;
   	}
+
+	@media (max-width: 440px) {
+		.hide-on-small {
+			display: none
+		}
+
+		.show-on-small {
+			display: flex
+		}
+	}
+
+	@media (min-width: 440px) {
+		.hide-on-lg {
+			display: none
+		}
+
+		.show-on-lg {
+			display: flex
+		}
+	}
 	
 </style>
