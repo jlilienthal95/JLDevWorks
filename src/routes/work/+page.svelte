@@ -18,8 +18,8 @@
     });
 </script>
 
-<div class="flex lg:flex-row flex-col w-full items-start" in:fade={{ duration: 500 }} out:slide={{ duration: 1500 }} >
-    <div id="headline" class="flex w-full h-max justify-center items-center pb-6 overflow-hidden">
+<div class="flex lg:flex-row flex-col w-full justify-center items-start" in:fade={{ duration: 500 }} out:slide={{ duration: 1500 }} >
+    <div id="headline" class="flex flex-1 w-full lg:w-min h-max justify-center items-center pb-6 overflow-hidden">
         <div class="hidden lg:flex flex-row lg:flex-col text-[50px] sm:text-[60px] md:text-[72px] xl:text-[92px] h-[55px] lg:h-fit items-center justify-center overflow-hidden">
             {#each ['W', 'O', 'R', 'K'] as letter, i}
                 <div 
@@ -34,8 +34,8 @@
             WORK
         </div>
     </div>
-    <div id="portfolioContainer" class="flex flex-1 justify-center items-center w-full h-full xl:mt-[12vh] lg:mt-[6vh] lg:mb-0 mb-20 ">
-        <div class="flex flex-col lg:flex-row lg:gap-24 gap-10 w-[90vw] h-full overflow-x-scroll overflow-y-visible justify-center lg:items-start items-center scroll-container">
+    <div id="portfolioContainer" class="flex flex-1 justify-center items-center h-full w-full xl:mt-[12vh] lg:mt-[6vh] lg:mb-0 mb-20 ">
+        <div class="flex flex-col lg:flex-row lg:w-[90vw] h-full overflow-x-scroll overflow-y-visible justify-around lg:items-start items-center scroll-container">
             <Portfolio imgSrc="/portfolio/PortfolioGallery.png" imgAlt="PortfolioGallery" titleClass="text-black text-2xl" titleContent="Portfolio Gallery" descriptContent="This one is for the artists. Works are showcased through a stylish looping gallery, allowing users to scroll endlessly. Upload your own pics in this demo!" url="https://portfolio-gallery-rho.vercel.app/"/>
             <Portfolio imgSrc="/portfolio/JBTravel.png" imgAlt="JB Travel" titleClass="text-black text-2xl" titleContent="JB Travel" descriptContent="Featuring a beautiful looping video, full screen scroll-snapping UI frames, and a robust single-page design utilizing Next.js and React." url="https://www.jbtravel.co"/>
             <Portfolio imgSrc="/portfolio/SvariaHome.png" imgAlt="SvARIA" titleClass="text-black text-2xl" titleContent="SvARIA" descriptContent="More than just a website—it’s a mission to enhance the development of accessible apps through a powerful, ARIA-compliant component library for Svelte, built for speed and inclusivity." url="https://www.svaria.org"/>
