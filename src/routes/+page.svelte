@@ -2,20 +2,38 @@
     import { scrollY, scrollThreshold } from "../store.js";
     import { fade } from 'svelte/transition';
     import { derived } from "svelte/store";
+	import { onMount } from "svelte";
 
     //styling classes
     const lgTextCont = "md:w-2/3 w-full"
     const lgTextClass = "text-[50px] sm:text-[60px] md:text-[72px] xl:text-[92px]"
+    let threshold = 200000;
 
     //background opacity from scrollY
     const bgOpacity = derived(scrollY, ($scrollY) =>  {
-        const threshold = 1100
         if($scrollY > threshold){
-            console.log('threshold met!')
-            return ($scrollY - threshold) * 0.19
+            // console.log('threshold met!')
+            return ($scrollY - threshold) * 0.15
         } else{
             return 0;
         }
+    })
+
+    onMount(() => {
+        const observer = new IntersectionObserver((entries => {
+            //If everyDigitalCont intersects, begin to sync bgOpacity to scrollY
+            entries.forEach((entry) => {
+                if(entry.isIntersecting){
+                    // console.log('intersection:', entry)
+                    threshold = $scrollY;
+                }
+            })
+        }), {
+            threshold: 0.1
+        })
+        
+        //observe everyDigitalCont to see when it intersects
+        observer.observe(document.getElementById('everyDigitalCont') as Element)
     })
 </script>
 

@@ -31,15 +31,15 @@
 		const handleScroll = () => {
 			scrollY.set(window.scrollY)
 			// Adjust threshold based on screen width
-			console.log('innerWidth:', window.innerWidth, "scrollY:", window.scrollY);
-			console.log('currentPath:', currentPath);
+			// console.log('innerWidth:', window.innerWidth, "scrollY:", window.scrollY);
+			// console.log('currentPath:', currentPath);
 			if (window.innerWidth < 768) {
         		scrollThreshold.set(150); // Lower threshold for mobile
       		} else {
         		scrollThreshold.set(300); // Default threshold
       		}
 			if($scrollY + window.innerHeight >= document.documentElement.scrollHeight && $currentPath === "/"){
-				console.log('no header')
+				// console.log('no header')
 				toggleHeader.set(false);
 			} else{
 				toggleHeader.set(true);
